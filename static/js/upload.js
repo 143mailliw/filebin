@@ -8,7 +8,7 @@ function FileAPI (c, t, d, f, bin, uploadURL, binURL) {
         counter_uploading = 0,
         counter_completed = 0,
         counter_failed = 0,
-        concurrency = 4,
+        concurrency = 50,
         fileQueue = new Array(),
         preview = null;
 

@@ -61,8 +61,8 @@ $ export PATH="${PATH}:${GOPATH}/bin"
 Download and install Filebin:
 
 ```bash
-$ go get -d github.com/espebra/filebin
-$ cd ${GOPATH}/src/github.com/espebra/filebin
+$ go get -d github.com/143mailliw/filebin
+$ cd ${GOPATH}/src/github.com/143mailliw/filebin
 $ make get-deps
 $ make install
 ```

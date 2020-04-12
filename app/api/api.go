@@ -96,7 +96,7 @@ func verifyBin(s string) error {
 }
 
 func verifyFilename(s string) error {
-	var invalid = regexp.MustCompile("[^A-Za-z0-9-_=,.]")
+	var invalid = regexp.MustCompile("[^A-Za-z0-9-_=,. ]")
 	if invalid.MatchString(s) {
 		return errors.New("The filename contains invalid characters.")
 	}

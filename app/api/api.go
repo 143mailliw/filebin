@@ -2,6 +2,15 @@ package api
 
 import (
 	"errors"
+	"math/rand"
+	"net/http"
+	"net/url"
+	"os/exec"
+	"regexp"
+	"strconv"
+	"strings"
+	"time"
+
 	"github.com/dustin/go-humanize"
 	"github.com/espebra/filebin/app/backend/fs"
 	"github.com/espebra/filebin/app/config"
@@ -11,14 +20,6 @@ import (
 	"github.com/espebra/filebin/app/shared"
 	"github.com/espebra/filebin/app/tokens"
 	"github.com/gorilla/mux"
-	"math/rand"
-	"net/http"
-	"net/url"
-	"os/exec"
-	"regexp"
-	"strconv"
-	"strings"
-	"time"
 )
 
 func triggerNewBinHandler(c string, bin string) error {
@@ -112,7 +113,7 @@ func verifyFilename(s string) error {
 }
 
 func sanitizeFilename(s string) string {
-	var invalid = regexp.MustCompile("[^A-Za-z0-9-_=,.]")
+	var invalid = regexp.MustCompile("[^A-Za-z0-9-_=,. ]")
 	s = invalid.ReplaceAllString(s, "_")
 
 	if strings.HasPrefix(s, ".") {
